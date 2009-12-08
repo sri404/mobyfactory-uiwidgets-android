@@ -1,4 +1,4 @@
-#labels Phase-Deploy
+#labels Phase-Deploy,ScrollableTabHost
 = Comparing [http://developer.android.com/reference/android/widget/TabHost.html TabHost] with [http://code.google.com/p/mobyfactory-uiwidgets-android/source/browse/trunk/src/com/mobyfactory/uiwidgets/ScrollableTabActivity.java ScrollableTabHost] =
 
 [http://code.google.com/p/mobyfactory-uiwidgets-android/source/browse/trunk/src/com/mobyfactory/uiwidgets/ScrollableTabActivity.java ScrollableTabHost] is designed such that you can easily convert existing application using [http://developer.android.com/reference/android/widget/TabHost.html TabHost] to [http://code.google.com/p/mobyfactory-uiwidgets-android/source/browse/trunk/src/com/mobyfactory/uiwidgets/ScrollableTabActivity.java ScrollableTabHost] easily. 
