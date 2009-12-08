@@ -1,0 +1,46 @@
+= Comparing TabHost with ScrollableTabHost =
+
+*ScrollableTabHost* is designed such that you can easily convert existing application using *TabHost* to *ScrollableTabHost* easily. 
+
+To keep the example short, only 2 tabs are added to both [http://developer.android.com/reference/android/widget/TabHost.html TabHost] and *ScrollableTabHost*. *ScrollView* in *ScrollableTabHost* will only appear if total width of all tabs combined exceeds the screen width of the device. Tabs are spaced out evenly just like *TabHost* if less tabs are available.
+
+==TabHost==
+{{{
+public class Demo_TabHost extends TabActivity {
+
+    @Override 
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        final TabHost tabHost = getTabHost();
+       
+        tabHost.add(tabHost.newTabSpec("0")
+                      .setIndicator("title 0", getResources().getDrawable(R.drawable.star))
+                      .setContent(new Intent(this, DemoActivity1.class)));
+
+        tabHost.add(tabHost.newTabSpec("1")
+                      .setIndicator("title 1", getResources().getDrawable(R.drawable.star))
+                      .setContent(new Intent(this, DemoActivity2.class)));
+    }
+
+}
+}}}
+
+==ScrollableTabHost==
+{{{
+public class Demo_TabHost extends ScrollableTabActivity {
+
+    @Override 
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setDelegate(new SliderBarActivityDelegateImpl());
+        setDefaultShade(RadioStateDrawable.SHADE_GRAY, RadioStateDrawable.SHADE_GREEN);
+       
+        this.addTab("title 0", R.drawable.star, new Intent(this, DemoActivity1.class));
+        this.addTab("title 1", R.drawable.star, new Intent(this, DemoActivity2.class));
+        commit();
+    }
+
+}
+}}}
